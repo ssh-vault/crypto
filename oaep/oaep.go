@@ -7,7 +7,7 @@ import (
 )
 
 // Encrypt OAEP
-func Encrypt(pub *PublicKey, msg, label []byte) ([]byte, error) {
+func Encrypt(pub *rsa.PublicKey, msg, label []byte) ([]byte, error) {
 	ciphertext, err := rsa.EncryptOAEP(sha256.New(),
 		rand.Reader,
 		pub,
@@ -20,8 +20,8 @@ func Encrypt(pub *PublicKey, msg, label []byte) ([]byte, error) {
 }
 
 // Decrypt OAEP
-func Decrypt(priv *PrivateKey, ciphertext, label []byte) ([]byte, error) {
-	plaintext, err := DecryptOAEP(sha256.New(),
+func Decrypt(priv *rsa.PrivateKey, ciphertext, label []byte) ([]byte, error) {
+	plaintext, err := rsa.DecryptOAEP(sha256.New(),
 		rand.Reader,
 		priv,
 		ciphertext,
