@@ -1,11 +1,10 @@
-package crypto_tests
+package aead
 
 import (
 	"bytes"
 	"testing"
 
 	"github.com/ssh-vault/crypto"
-	"github.com/ssh-vault/crypto/aead"
 )
 
 func TestAEAD(t *testing.T) {
@@ -15,12 +14,12 @@ func TestAEAD(t *testing.T) {
 	}
 
 	message := []byte("The quick brown fox jumps over the lazy dog")
-	ciphertext, err := aead.Encrypt(password, message, []byte(""))
+	ciphertext, err := Encrypt(password, message, []byte(""))
 	if err != nil {
 		t.Error(err)
 	}
 
-	plaintext, err := aead.Decrypt(password, ciphertext, []byte(""))
+	plaintext, err := Decrypt(password, ciphertext, []byte(""))
 	if err != nil {
 		t.Error(err)
 	}
