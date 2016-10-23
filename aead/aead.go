@@ -11,7 +11,7 @@ import (
 // Encrypt AES-256 GCM
 func Encrypt(password, message, additionalData []byte) ([]byte, error) {
 	if len(password) != 32 {
-		return nil, fmt.Errorf("key size != 32, size: %d", len(password))
+		return nil, fmt.Errorf("key size %d != 32", len(password))
 	}
 
 	c, err := aes.NewCipher(password)
