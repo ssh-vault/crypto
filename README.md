@@ -3,5 +3,5 @@
 # crypto
 encryption package
 
-[Authenticated Encryption with Associated Data](aead)
-[Optimal Asymmetric Encryption Padding](oaep)
+* [Authenticated Encryption with Associated Data](aead)
+* [Optimal Asymmetric Encryption Padding](oaep)
